@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 596" width="960" height="596" role="img" aria-labelledby="title desc">
+<title id="title">How much faster each page got</title>
+<desc id="desc">Search: 1,328 → 484 ms; Topic page: 712 → 381 ms; Jump to a post: 107 → 59 ms; Reaction on a post: 204 → 117 ms; Next topic page (AJAX): 464 → 277 ms; Profile content: 268 → 184 ms; Forum topic list: 635 → 438 ms; Profile: 400 → 293 ms; Forum index: 530 → 449 ms; Pages (CMS): 293 → 279 ms</desc>
+<style>
+  .surface { fill: #fcfcfb; }
+  .border { fill: none; stroke: #e6e5e1; }
+  .t1 { fill: #0b0b0b; }
+  .t2 { fill: #52514e; }
+  .t3 { fill: #6f6e69; }
+  .grid { stroke: #e6e5e1; }
+  .axis { stroke: #c9c8c2; }
+  .bar { fill: #2a78d6; }
+  .accent { fill: #2a78d6; }
+  @media (prefers-color-scheme: dark) {
+    .surface { fill: #1a1a19; }
+    .border { stroke: #2e2e2c; }
+    .t1 { fill: #f0efec; }
+    .t2 { fill: #c3c2b7; }
+    .t3 { fill: #a3a29b; }
+    .grid { stroke: #2e2e2c; }
+    .axis { stroke: #4a4a47; }
+    .bar { fill: #3987e5; }
+    .accent { fill: #3987e5; }
+  }
+  text { font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+</style>
+<rect class="surface" x="0.5" y="0.5" width="959" height="595" rx="12"/>
+<rect class="border" x="0.5" y="0.5" width="959" height="595" rx="12"/>
+<text x="32" y="46" class="t1" font-size="22" font-weight="600" text-anchor="start">How much faster each page got</text>
+<text x="32" y="74" class="t2" font-size="13" font-weight="400" text-anchor="start">Server time per page view, before → after. Measured with Performance Monitor on audiostereo.pl (3.2 M posts), October 2026.</text>
+<line class="axis" x1="250.0" y1="104" x2="250.0" y2="504" stroke-width="1"/>
+<text x="250.0" y="522" class="t3" font-size="11" font-weight="400" text-anchor="middle">0%</text>
+<line class="grid" x1="370.0" y1="104" x2="370.0" y2="504" stroke-width="1"/>
+<text x="370.0" y="522" class="t3" font-size="11" font-weight="400" text-anchor="middle">20%</text>
+<line class="grid" x1="490.0" y1="104" x2="490.0" y2="504" stroke-width="1"/>
+<text x="490.0" y="522" class="t3" font-size="11" font-weight="400" text-anchor="middle">40%</text>
+<line class="grid" x1="610.0" y1="104" x2="610.0" y2="504" stroke-width="1"/>
+<text x="610.0" y="522" class="t3" font-size="11" font-weight="400" text-anchor="middle">60%</text>
+<text x="236" y="122" class="t1" font-size="14" font-weight="400" text-anchor="end">Search</text>
+<path class="bar" d="M250 110 H627.3498041578789 A4 4 0 0 1 631.3498041578789 114 V122 A4 4 0 0 1 627.3498041578789 126 H250 Z"/>
+<text x="641.3498041578789" y="123" font-size="14"><tspan class="t1" font-weight="600">−64%</tspan><tspan class="t2" dx="8">1,328 → 484 ms</tspan></text>
+<text x="236" y="162" class="t1" font-size="14" font-weight="400" text-anchor="end">Topic page</text>
+<path class="bar" d="M250 150 H525.1970802919708 A4 4 0 0 1 529.1970802919708 154 V162 A4 4 0 0 1 525.1970802919708 166 H250 Z"/>
+<text x="539.1970802919708" y="163" font-size="14"><tspan class="t1" font-weight="600">−47%</tspan><tspan class="t2" dx="8">712 → 381 ms</tspan></text>
+<text x="236" y="202" class="t1" font-size="14" font-weight="400" text-anchor="end">Jump to a post</text>
+<path class="bar" d="M250 190 H516.0838769804287 A4 4 0 0 1 520.0838769804287 194 V202 A4 4 0 0 1 516.0838769804287 206 H250 Z"/>
+<text x="530.0838769804287" y="203" font-size="14"><tspan class="t1" font-weight="600">−45%</tspan><tspan class="t2" dx="8">107 → 59 ms</tspan></text>
+<text x="236" y="242" class="t1" font-size="14" font-weight="400" text-anchor="end">Reaction on a post</text>
+<path class="bar" d="M250 230 H500.9115913555992 A4 4 0 0 1 504.9115913555992 234 V242 A4 4 0 0 1 500.9115913555992 246 H250 Z"/>
+<text x="514.9115913555993" y="243" font-size="14"><tspan class="t1" font-weight="600">−42%</tspan><tspan class="t2" dx="8">204 → 117 ms</tspan></text>
+<text x="236" y="282" class="t1" font-size="14" font-weight="400" text-anchor="end">Next topic page (AJAX)</text>
+<path class="bar" d="M250 270 H488.37982323776674 A4 4 0 0 1 492.37982323776674 274 V282 A4 4 0 0 1 488.37982323776674 286 H250 Z"/>
+<text x="502.37982323776674" y="283" font-size="14"><tspan class="t1" font-weight="600">−40%</tspan><tspan class="t2" dx="8">464 → 277 ms</tspan></text>
+<text x="236" y="322" class="t1" font-size="14" font-weight="400" text-anchor="end">Profile content</text>
+<path class="bar" d="M250 310 H432.392523364486 A4 4 0 0 1 436.392523364486 314 V322 A4 4 0 0 1 432.392523364486 326 H250 Z"/>
+<text x="446.392523364486" y="323" font-size="14"><tspan class="t1" font-weight="600">−31%</tspan><tspan class="t2" dx="8">268 → 184 ms</tspan></text>
+<text x="236" y="362" class="t1" font-size="14" font-weight="400" text-anchor="end">Forum topic list</text>
+<path class="bar" d="M250 350 H432.3894139886578 A4 4 0 0 1 436.3894139886578 354 V362 A4 4 0 0 1 432.3894139886578 366 H250 Z"/>
+<text x="446.3894139886578" y="363" font-size="14"><tspan class="t1" font-weight="600">−31%</tspan><tspan class="t2" dx="8">635 → 438 ms</tspan></text>
+<text x="236" y="402" class="t1" font-size="14" font-weight="400" text-anchor="end">Profile</text>
+<path class="bar" d="M250 390 H406.28014007003503 A4 4 0 0 1 410.28014007003503 394 V402 A4 4 0 0 1 406.28014007003503 406 H250 Z"/>
+<text x="420.28014007003503" y="403" font-size="14"><tspan class="t1" font-weight="600">−27%</tspan><tspan class="t2" dx="8">400 → 293 ms</tspan></text>
+<text x="236" y="442" class="t1" font-size="14" font-weight="400" text-anchor="end">Forum index</text>
+<path class="bar" d="M250 430 H337.43719351188236 A4 4 0 0 1 341.43719351188236 434 V442 A4 4 0 0 1 337.43719351188236 446 H250 Z"/>
+<text x="351.43719351188236" y="443" font-size="14"><tspan class="t1" font-weight="600">−15%</tspan><tspan class="t2" dx="8">530 → 449 ms</tspan></text>
+<text x="236" y="482" class="t1" font-size="14" font-weight="400" text-anchor="end">Pages (CMS)</text>
+<path class="bar" d="M250 470 H273.68284347231713 A4 4 0 0 1 277.68284347231713 474 V482 A4 4 0 0 1 273.68284347231713 486 H250 Z"/>
+<text x="287.68284347231713" y="483" font-size="14"><tspan class="t1" font-weight="600">−5%</tspan><tspan class="t2" dx="8">293 → 279 ms</tspan></text>
+<text x="32" y="568" class="t3" font-size="12" font-weight="400" text-anchor="start">Before: 14 Oct, about 100,000 views. After: 16–17 Oct, about 114,000 views. Same traffic mix.</text>
+</svg>
