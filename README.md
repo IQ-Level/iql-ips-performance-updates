@@ -66,6 +66,17 @@ The settings page shows, for every fix, whether it works on this forum and, if n
 
 A sample of requests: the time of every page, SQL queries grouped by pattern with the line of code that sent them, templates, Pages blocks, HTTP calls (such as Elasticsearch), a PHP profile (with the excimer extension), and the slowest requests with what they waited for. It has a report in the ACP, a dashboard block with a 48-hour chart, a before and after comparison and a JSON export. It only measures, and saves its results to Redis after the page has been sent.
 
+## Beyond the plugins: custom templates and add-ons
+
+Performance Monitor also shows slow code that is not in IPS itself: custom Pages templates, blocks and third-party add-ons. On the same forum we fixed these with a few changed lines each:
+
+| What was slow | Cause | Before → after |
+| --- | --- | --- |
+| FAQ pages (a Pages database template) | The side menu re-ran the article list query once per category, about 30 times per page | 2.85 s → 0.46 s per page |
+| Equipment type pages (a custom record template) | A count compared a text field with a number, so the database could not use its index | 4.1 s → 0.27 s per page |
+| Night mode add-on | Asked the database on every theme check, 10 times per page for every guest | 10 queries → 0 per page |
+| Chat add-on | Loaded 228 KB of JavaScript on every page for everyone, while only admins can see the chat | Loaded only for those who can see it |
+
 ## Requirements
 
 - Invision Community 4.7 (tested on 4.7.25)
@@ -76,3 +87,7 @@ A sample of requests: the time of every page, SQL queries grouped by pattern wit
 ## Availability
 
 Coming soon at [iql.pl](https://iql.pl).
+
+## Help with your forum
+
+Slow pages that the plugins cannot fix on their own, such as custom templates, Pages blocks or add-ons, we can fix for you as a paid service. Send us the export from Performance Monitor and a short description of what is slow. We tell you what causes it and what the fix costs, and every fix comes with a before and after measurement. Every number on this page comes from that same work on a live forum, so we know Invision Community from the inside. Contact: [iql.pl](https://iql.pl).
