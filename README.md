@@ -1,0 +1,78 @@
+<p align="center"><img src="assets/banner-en.svg" alt="IQL Performance Suite for Invision Community 4.7: topic pages 47% faster, large topics 12 s to 2–3 s, average page 39% faster" width="100%"></p>
+
+**IQL Performance Suite** makes Invision Community 4.7 forums faster without changing what they show. It is two plugins: **Performance Optimizer** removes work IPS does for nothing, and **Performance Monitor** measures every page, so you see the gain on your own forum.
+
+[Po polsku](README.pl.md) · [Changelog](CHANGELOG.md) · [iql.pl](https://iql.pl)
+
+This repository is the public release channel: current versions, changelog and results. The code and the plugin files are not here.
+
+## Current versions
+
+| Plugin | Version | Released | For |
+| --- | --- | --- | --- |
+| Performance Optimizer | 1.10.0 | 2026-10-17 | Invision Community 4.7 |
+| Performance Monitor | 1.5.4 | 2026-10-17 | Invision Community 4.7 |
+
+IPS checks for new versions on its own: each plugin reads its file in this repository ([`optimizer/latest.json`](optimizer/latest.json), [`monitor/latest.json`](monitor/latest.json)) and the ACP shows a "new version" badge next to the plugin.
+
+## Results
+
+<p align="center"><img src="assets/results-en.svg" alt="Server time per page view before and after: search 1,328 to 484 ms, topic page 712 to 381 ms, jump to a post 107 to 59 ms, reaction 204 to 117 ms, next topic page 464 to 277 ms, profile content 268 to 184 ms, forum topic list 635 to 438 ms, profile 400 to 293 ms, forum index 530 to 449 ms, Pages 293 to 279 ms" width="100%"></p>
+
+**Large topics** with thousands of pages took about 12 s to open, and now take 2–3 s at most. The main cause was one IPS query for a topic's first and last post, which walked the date index of the whole forum: 4.018 s → 0.001 s on a forum with 3.2 million posts.
+
+Results depend on the forum: its size, theme, add-ons, hosting and the distance to the database. The largest gains come on big forums with the database on a separate server, long topics, many language strings, Pages blocks and clubs. Performance Monitor shows before and after on yours.
+
+## What we guarantee
+
+| Guarantee | How it is checked |
+| --- | --- |
+| Same output as plain IPS: the same pages, posts, lists and API responses | Every test case runs twice, plain IPS and with the fix, and the results must match, also on a real MariaDB 10.4 with random data. |
+| Permissions unchanged: no leaked forums or hidden content | Permissions are still checked by IPS's own code. Tests run for 5–6 viewers (guest, member, secondary groups, admin, club member), and deliberately broken variants, such as a missing permission condition, must fail them. |
+| Every fix can be switched off on its own | A switch in the ACP. A test checks that the plugin's code does not run when it is off. |
+| Redis going down does not break the forum | On a Redis error the fix hands over to IPS. Every Redis-based fix is tested with Redis gone. |
+| Changes made in IPS show at once | Data kept longer than one request (language strings, club lists) moves to a new version on every write made by IPS. Tested for edits, additions and deletions. |
+| No changes to the database structure or to IPS files | No tables, columns or indexes are added. Uninstalling leaves plain IPS. |
+| Works with your other add-ons | A test loads every class hooked by the installed applications. A conflict that would take a forum down is caught before release. |
+
+The one intended difference from IPS: notification emails go out right after the page is sent, instead of before it. They are the same emails, in the same order.
+
+## What Performance Optimizer fixes
+
+| Fix | What IPS did | Measured |
+| --- | --- | --- |
+| Language strings | Scanned the whole page once per phrase, four times over (about 11,000 scans on a topic page) | Topic page: 403 → 32 ms; a 1.2 MB page: 2.3 → 0.04 s |
+| Language strings in the REST API | Re-encoded every phrase for every text in the response | Large response: 2.4–2.8 → 0.04–0.05 s; no more app timeouts |
+| A topic's first and last post | Walked the date index of the whole forum | 4.018 → 0.001 s per query |
+| File URLs in posts | Replaced the storage tag once per image | 160 posts: 198 → 4 ms |
+| Recognize | Queried the database before checking the permission | About 50 fewer queries per topic page |
+| Datastore from Redis | Read every key on its own | About 130 fewer Redis commands per request |
+| Clubs of forums | One query per club forum | Search form: about 270 queries → 3–4 |
+| Forum tree | One query per forum for its children | Search form: about 490 queries and 410 ms → a few queries |
+| Theme tree | One query per theme for its children, on every page | About 8 queries → 1–2 on every page |
+| Pages database pages | One query per database page | About 14 queries → 2 per topic and reaction |
+| Language strings from Redis | One query with about 2,800 phrases on every page | About 26 ms → no query |
+| A post author's clubs | Two queries per post | About 44 queries and 53 ms per topic → almost none |
+| Topic without the whole forum tree | Loaded about 500 forums before every topic | About 40 ms per topic view |
+| Post notes (postnotes add-on) | Two queries per post | 23 queries and 21 ms → 1 query |
+| Application extensions | Read and decoded a file on every call | About 52 ms per topic page |
+| Notification emails | Sent them over SMTP before the page went back to the user | Reacting no longer waits about 240 ms for the mail server |
+| Template copies on disk | After a cache clear it could rewrite a stale copy on every request | 50–70 ms per topic page and no more "Class … not found" errors |
+| Pages blocks | One query per block and per block category | Topic blocks: 52 → 18 ms; sidebar widgets: 5 fewer queries |
+
+The settings page shows, for every fix, whether it works on this forum and, if not, why: no Pages, clubs switched off, no Redis, and so on. A fix for a part of IPS the forum does not use does nothing.
+
+## What Performance Monitor measures
+
+A sample of requests: the time of every page, SQL queries grouped by pattern with the line of code that sent them, templates, Pages blocks, HTTP calls (such as Elasticsearch), a PHP profile (with the excimer extension), and the slowest requests with what they waited for. It has a report in the ACP, a dashboard block with a 48-hour chart, a before and after comparison and a JSON export. It only measures, and saves its results to Redis after the page has been sent.
+
+## Requirements
+
+- Invision Community 4.7 (tested on 4.7.25)
+- PHP 8.0, 8.1 or 8.2
+- MySQL or MariaDB (tested on MariaDB 10.4)
+- Recommended: Redis for the datastore and cache, and PHP-FPM. Several fixes need them, and the settings page says which.
+
+## Availability
+
+Coming soon at [iql.pl](https://iql.pl).

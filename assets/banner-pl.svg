@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 400" width="1280" height="400" role="img" aria-labelledby="title desc">
+<title id="title">IQL Performance Suite dla Invision Community 4.7</title>
+<desc id="desc">To samo forum. Te same uprawnienia. Szybsze strony. −47% strona tematu, 12 s → 2–3 s duże tematy, −39% średnia strona.</desc>
+<style>
+  .surface { fill: #fcfcfb; }
+  .border { fill: none; stroke: #e6e5e1; }
+  .t1 { fill: #0b0b0b; }
+  .t2 { fill: #52514e; }
+  .t3 { fill: #6f6e69; }
+  .grid { stroke: #e6e5e1; }
+  .axis { stroke: #c9c8c2; }
+  .bar { fill: #2a78d6; }
+  .accent { fill: #2a78d6; }
+  @media (prefers-color-scheme: dark) {
+    .surface { fill: #1a1a19; }
+    .border { stroke: #2e2e2c; }
+    .t1 { fill: #f0efec; }
+    .t2 { fill: #c3c2b7; }
+    .t3 { fill: #a3a29b; }
+    .grid { stroke: #2e2e2c; }
+    .axis { stroke: #4a4a47; }
+    .bar { fill: #3987e5; }
+    .accent { fill: #3987e5; }
+  }
+  text { font-family: -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+</style>
+<rect class="surface" x="0.5" y="0.5" width="1279" height="399" rx="16"/>
+<rect class="border" x="0.5" y="0.5" width="1279" height="399" rx="16"/>
+<rect class="accent" x="56" y="72" width="56" height="6" rx="3"/>
+<text x="56" y="140" class="t1" font-size="52" font-weight="700" text-anchor="start">IQL Performance Suite</text>
+<text x="56" y="184" class="t2" font-size="26" font-weight="500" text-anchor="start">dla Invision Community 4.7</text>
+<text x="56" y="252" class="t1" font-size="22" font-weight="500" text-anchor="start">To samo forum. Te same uprawnienia. Szybsze strony.</text>
+<text x="56" y="290" class="t3" font-size="17" font-weight="400" text-anchor="start">Performance Optimizer  ·  Performance Monitor</text>
+<text x="56" y="352" class="t3" font-size="14" font-weight="400" text-anchor="start">Pomiar na audiostereo.pl, październik 2026</text>
+<rect class="border" x="676" y="104" width="182" height="196" rx="12"/>
+<rect class="accent" x="696" y="128" width="28" height="4" rx="2"/>
+<text x="696" y="196" class="t1" font-size="40" font-weight="700" text-anchor="start">−47%</text>
+<text x="696" y="240" class="t1" font-size="16" font-weight="600" text-anchor="start">strona tematu</text>
+<text x="696" y="266" class="t2" font-size="14" font-weight="400" text-anchor="start">712 → 381 ms</text>
+<rect class="border" x="872" y="104" width="182" height="196" rx="12"/>
+<rect class="accent" x="892" y="128" width="28" height="4" rx="2"/>
+<text x="892" y="190" class="t1" font-size="23" font-weight="700" text-anchor="start">12 s → 2–3 s</text>
+<text x="892" y="240" class="t1" font-size="16" font-weight="600" text-anchor="start">duże tematy</text>
+<text x="892" y="266" class="t2" font-size="14" font-weight="400" text-anchor="start">po kilka tysięcy stron</text>
+<rect class="border" x="1068" y="104" width="182" height="196" rx="12"/>
+<rect class="accent" x="1088" y="128" width="28" height="4" rx="2"/>
+<text x="1088" y="196" class="t1" font-size="40" font-weight="700" text-anchor="start">−39%</text>
+<text x="1088" y="240" class="t1" font-size="16" font-weight="600" text-anchor="start">średnia strona</text>
+<text x="1088" y="266" class="t2" font-size="14" font-weight="400" text-anchor="start">293 → 178 ms</text>
+</svg>

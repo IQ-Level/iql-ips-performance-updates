@@ -1,0 +1,8 @@
+{
+    "version": "1.5.4",
+    "longversion": 10504,
+    "released": 1792271197,
+    "updateurl": "https://github.com/IQ-Level/iql-ips-performance-updates",
+    "releasenotes": "IPS checks for new versions on its own.",
+    "published": "2026-10-17T21:06:37+00:00"
+}
