@@ -66,6 +66,17 @@ Ustawienia pokazują przy każdej poprawce, czy działa na tym forum, a jeśli n
 
 Próbkę wejść: czas każdej strony, zapytania SQL pogrupowane według wzorca z linią kodu, która je wysłała, szablony, bloki Pages, wywołania HTTP (np. Elasticsearch), profil PHP (z rozszerzeniem excimer) oraz najwolniejsze wejścia i to, na co czekały. Ma raport w ACP, blok na pulpicie z wykresem z 48 godzin, porównanie przed i po oraz eksport JSON. Tylko mierzy, a wyniki zapisuje w Redisie po wysłaniu strony.
 
+## Poza pluginami: własne szablony i dodatki
+
+Performance Monitor pokazuje też wolny kod spoza samego IPS: własne szablony Pages, bloki i dodatki innych autorów. Na tym samym forum poprawiliśmy je zmianą kilku linijek w każdym:
+
+| Co było wolne | Przyczyna | Przed → po |
+| --- | --- | --- |
+| Strony FAQ (szablon bazy Pages) | Menu boczne wykonywało zapytanie o listę artykułów osobno dla każdej kategorii, ok. 30 razy na stronę | 2,85 s → 0,46 s na stronę |
+| Strony typów sprzętu (własny szablon rekordu) | Liczenie porównywało pole tekstowe z liczbą, więc baza nie mogła użyć indeksu | 4,1 s → 0,27 s na stronę |
+| Dodatek trybu nocnego | Pytał bazę przy każdym sprawdzeniu motywu, 10 razy na stronę dla każdego gościa | 10 zapytań → 0 na stronę |
+| Dodatek czatu | Ładował 228 KB JavaScriptu na każdej stronie wszystkim, choć czat widzą tylko admini | Ładuje się tylko tym, którzy widzą czat |
+
 ## Wymagania
 
 - Invision Community 4.7 (sprawdzone na 4.7.25)
@@ -76,3 +87,7 @@ Próbkę wejść: czas każdej strony, zapytania SQL pogrupowane według wzorca 
 ## Dostępność
 
 Wkrótce na [iql.pl](https://iql.pl).
+
+## Pomoc przy Twoim forum
+
+Wolne strony, których pluginy nie naprawią same, np. własne szablony, bloki Pages czy dodatki, możemy poprawić odpłatnie. Wyślij nam eksport z Performance Monitora i krótko opisz, co jest wolne. Powiemy, co to powoduje i ile kosztuje poprawka, a każdą poprawkę dostajesz z pomiarem przed i po. Każda liczba na tej stronie pochodzi z takiej samej pracy na żywym forum, więc znamy Invision Community od środka. Kontakt: [iql.pl](https://iql.pl).
