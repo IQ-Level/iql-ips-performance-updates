@@ -1,8 +1,8 @@
 {
-    "version": "1.5.4",
-    "longversion": 10504,
-    "released": 1792271197,
+    "version": "1.6.0",
+    "longversion": 10600,
+    "released": 1792332677,
     "updateurl": "https://github.com/IQ-Level/iql-ips-performance-updates",
-    "releasenotes": "IPS checks for new versions on its own.",
-    "published": "2026-10-17T21:06:37+00:00"
+    "releasenotes": "Free licence key (0 zł) in the settings: it turns on new-version notices. Measurements work the same without it.",
+    "published": "2026-10-18T14:11:17+00:00"
 }
