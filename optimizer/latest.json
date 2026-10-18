@@ -1,8 +1,8 @@
 {
-    "version": "1.10.0",
-    "longversion": 11000,
-    "released": 1792271197,
+    "version": "1.11.0",
+    "longversion": 11100,
+    "released": 1792332677,
     "updateurl": "https://github.com/IQ-Level/iql-ips-performance-updates",
-    "releasenotes": "The settings page shows, for every fix, whether it works on this forum and why not. IPS checks for new versions on its own.",
-    "published": "2026-10-17T21:06:37+00:00"
+    "releasenotes": "Licence key in the settings, checked once a day in the background. Without a licence every fix works the same; IPS is not told about new versions.",
+    "published": "2026-10-18T14:11:17+00:00"
 }

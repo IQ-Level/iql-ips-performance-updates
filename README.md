@@ -10,10 +10,10 @@ This repository is the public release channel: current versions, changelog and r
 
 | Plugin | Version | Released | For |
 | --- | --- | --- | --- |
-| Performance Optimizer | 1.10.0 | 2026-10-17 | Invision Community 4.7 |
-| Performance Monitor | 1.5.4 | 2026-10-17 | Invision Community 4.7 |
+| Performance Optimizer | 1.11.0 | 2026-10-18 | Invision Community 4.7 |
+| Performance Monitor | 1.6.0 | 2026-10-18 | Invision Community 4.7 |
 
-IPS checks for new versions on its own: each plugin reads its file in this repository ([`optimizer/latest.json`](optimizer/latest.json), [`monitor/latest.json`](monitor/latest.json)) and the ACP shows a "new version" badge next to the plugin.
+IPS checks for new versions on its own once the plugin has a licence key (the Monitor's is free): each plugin reads its file in this repository ([`optimizer/latest.json`](optimizer/latest.json), [`monitor/latest.json`](monitor/latest.json)) and the ACP shows a "new version" badge next to the plugin.
 
 ## Results
 

@@ -6,6 +6,7 @@ Both plugins are for Invision Community 4.7. Newest first.
 
 | Version | Date | Changes |
 | --- | --- | --- |
+| 1.11.0 | 2026-10-18 | Licence key in the settings: saving activates it for the forum's domain, removing it detaches it. A background task checks it once a day, never during a page view. Without a valid licence every fix works the same; the ACP shows a message and IPS is not told about new versions. Answers of the licence server are signed (Ed25519); when it does not answer, the last known state stays. |
 | 1.10.0 | 2026-10-17 | The settings page shows, for every fix, whether it works on this forum and why not (no Forums or Pages, clubs off, no Redis, datastore outside Redis, no `first_post` index, no postnotes, no PHP-FPM, templates not on disk). IPS checks for new versions on its own. |
 | 1.9.0 | 2026-10-17 | Pages "Blocks" sidebar widgets are loaded with the page's other blocks: 5 fewer queries per topic page, 4 per Pages page. |
 | 1.8.0 | 2026-10-16 | Pages blocks of a page in one query, with their categories one level per query. Topic page blocks: 52 → 18 ms. |
@@ -23,6 +24,7 @@ Both plugins are for Invision Community 4.7. Newest first.
 
 | Version | Date | Changes |
 | --- | --- | --- |
+| 1.6.0 | 2026-10-18 | Free licence key (0 zł, updates without limit) in the settings: it turns on IPS's new-version notices. A background task checks it once a day, never during a page view. Measurements work the same without it. |
 | 1.5.4 | 2026-10-17 | IPS checks for new versions on its own. |
 | 1.5.3 | 2026-10-17 | Time of HTTP calls (Elasticsearch, external APIs). Requests of 1 s or more keep their costliest queries and HTTP calls. Pages blocks of 300 ms or more are listed with the address they were shown on. |
 | 1.5.2 | 2026-10-16 | Time, calls and SQL of every Pages block. |
