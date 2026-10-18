@@ -6,6 +6,7 @@ Both plugins are for Invision Community 4.7. Newest first.
 
 | Version | Date | Changes |
 | --- | --- | --- |
+| 1.12.0 | 2026-10-18 | Fix for an IPS 4.7 bug with Elasticsearch: with "Maximum Results" below 1000, Elasticsearch refused some of IPS's index updates and deletes by query (they give no batch size, so it reads 1000 at a time), and IPS never checked. Older posts kept the last-post marker, so a topic showed up several times in unread content, and deleted content stayed in search. The plugin now gives those requests a batch size the index accepts; the index gets what IPS sends with 1000 or more. The settings page warns when the index's result window is below 1000. |
 | 1.11.0 | 2026-10-18 | Licence key in the settings: saving activates it for the forum's domain, removing it detaches it. A background task checks it once a day, never during a page view. Without a valid licence every fix works the same; the ACP shows a message and IPS is not told about new versions. Answers of the licence server are signed (Ed25519); when it does not answer, the last known state stays. |
 | 1.10.0 | 2026-10-17 | The settings page shows, for every fix, whether it works on this forum and why not (no Forums or Pages, clubs off, no Redis, datastore outside Redis, no `first_post` index, no postnotes, no PHP-FPM, templates not on disk). IPS checks for new versions on its own. |
 | 1.9.0 | 2026-10-17 | Pages "Blocks" sidebar widgets are loaded with the page's other blocks: 5 fewer queries per topic page, 4 per Pages page. |
