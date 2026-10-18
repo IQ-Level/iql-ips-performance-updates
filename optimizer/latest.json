@@ -1,8 +1,8 @@
 {
-    "version": "1.12.0",
-    "longversion": 11200,
-    "released": 1792334417,
+    "version": "1.13.0",
+    "longversion": 11300,
+    "released": 1792340328,
     "updateurl": "https://github.com/IQ-Level/iql-ips-performance-updates",
-    "releasenotes": "Fix for an IPS bug with Elasticsearch and \"Maximum Results\" below 1000: index updates and deletes that Elasticsearch silently refused (a topic several times in unread content, deleted content left in search) now go through. The settings page warns about a result window below 1000.",
-    "published": "2026-10-18T14:40:17+00:00"
+    "releasenotes": "Pages of large topics: the first and the last pages no longer make MariaDB walk the date index of the whole forum (on a test database with 3.1 million posts, page 1 of a large topic 0.6-3.6 s -> 0.5-0.7 ms). Same posts in the same order; every other page planned as by IPS. Separate switch in the settings.",
+    "published": "2026-10-18T16:18:48+00:00"
 }

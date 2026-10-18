@@ -10,7 +10,7 @@ To repozytorium jest publicznym kanałem wydań: aktualne wersje, changelog i wy
 
 | Plugin | Wersja | Wydana | Dla |
 | --- | --- | --- | --- |
-| Performance Optimizer | 1.12.0 | 2026-10-18 | Invision Community 4.7 |
+| Performance Optimizer | 1.13.0 | 2026-10-18 | Invision Community 4.7 |
 | Performance Monitor | 1.6.0 | 2026-10-18 | Invision Community 4.7 |
 
 IPS sam sprawdza nowe wersje, gdy plugin ma klucz licencji (do Monitora darmowy): każdy plugin czyta swój plik w tym repozytorium ([`optimizer/latest.json`](optimizer/latest.json), [`monitor/latest.json`](monitor/latest.json)), a ACP pokazuje przy pluginie plakietkę „nowa wersja”.
@@ -44,6 +44,7 @@ Jedyna zamierzona różnica względem IPS: maile z powiadomień wychodzą tuż p
 | Podmiana tłumaczeń | Przechodził całą stronę osobno dla każdej frazy, cztery razy (ok. 11 tys. przejść na stronę tematu) | Temat: 403 → 32 ms; strona 1,2 MB: 2,3 → 0,04 s |
 | Tłumaczenia w API | Dla każdego tekstu odpowiedzi kodował od nowa wszystkie frazy | Duża odpowiedź: 2,4–2,8 → 0,04–0,05 s, koniec timeoutów aplikacji |
 | Pierwszy i ostatni post tematu | Szukał po indeksie dat całego forum | 4,018 → 0,001 s na zapytanie |
+| Strony dużych tematów (1.13.0) | Przy pierwszych i ostatnich stronach szukał po indeksie dat całego forum | Strona 1 tematów z 12–110 tys. postów: 0,6–3,6 s → 0,5–0,7 ms (baza testowa, 3,1 mln postów) |
 | Adresy plików w postach | Podmieniał znacznik osobno dla każdego obrazka | 160 postów: 198 → 4 ms |
 | Wyróżnienia (recognize) | Pytał bazę przed sprawdzeniem uprawnienia | Ok. 50 zapytań mniej na stronę tematu |
 | Datastore z Redisa | Pobierał każdy klucz osobno | Ok. 130 poleceń Redisa mniej na wejście |

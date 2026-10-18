@@ -10,7 +10,7 @@ This repository is the public release channel: current versions, changelog and r
 
 | Plugin | Version | Released | For |
 | --- | --- | --- | --- |
-| Performance Optimizer | 1.12.0 | 2026-10-18 | Invision Community 4.7 |
+| Performance Optimizer | 1.13.0 | 2026-10-18 | Invision Community 4.7 |
 | Performance Monitor | 1.6.0 | 2026-10-18 | Invision Community 4.7 |
 
 IPS checks for new versions on its own once the plugin has a licence key (the Monitor's is free): each plugin reads its file in this repository ([`optimizer/latest.json`](optimizer/latest.json), [`monitor/latest.json`](monitor/latest.json)) and the ACP shows a "new version" badge next to the plugin.
@@ -44,6 +44,7 @@ The one intended difference from IPS: notification emails go out right after the
 | Language strings | Scanned the whole page once per phrase, four times over (about 11,000 scans on a topic page) | Topic page: 403 → 32 ms; a 1.2 MB page: 2.3 → 0.04 s |
 | Language strings in the REST API | Re-encoded every phrase for every text in the response | Large response: 2.4–2.8 → 0.04–0.05 s; no more app timeouts |
 | A topic's first and last post | Walked the date index of the whole forum | 4.018 → 0.001 s per query |
+| Pages of large topics (1.13.0) | For the first and the last pages, walked the date index of the whole forum | Page 1 of topics with 12,000–110,000 posts: 0.6–3.6 s → 0.5–0.7 ms (test database, 3.1 million posts) |
 | File URLs in posts | Replaced the storage tag once per image | 160 posts: 198 → 4 ms |
 | Recognize | Queried the database before checking the permission | About 50 fewer queries per topic page |
 | Datastore from Redis | Read every key on its own | About 130 fewer Redis commands per request |
