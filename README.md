@@ -10,7 +10,7 @@ This repository is the public release channel: current versions, changelog and r
 
 | Plugin | Version | Released | For |
 | --- | --- | --- | --- |
-| Performance Optimizer | 1.11.0 | 2026-10-18 | Invision Community 4.7 |
+| Performance Optimizer | 1.12.0 | 2026-10-18 | Invision Community 4.7 |
 | Performance Monitor | 1.6.0 | 2026-10-18 | Invision Community 4.7 |
 
 IPS checks for new versions on its own once the plugin has a licence key (the Monitor's is free): each plugin reads its file in this repository ([`optimizer/latest.json`](optimizer/latest.json), [`monitor/latest.json`](monitor/latest.json)) and the ACP shows a "new version" badge next to the plugin.
@@ -35,7 +35,7 @@ Results depend on the forum: its size, theme, add-ons, hosting and the distance 
 | No changes to the database structure or to IPS files | No tables, columns or indexes are added. Uninstalling leaves plain IPS. |
 | Works with your other add-ons | A test loads every class hooked by the installed applications. A conflict that would take a forum down is caught before release. |
 
-The one intended difference from IPS: notification emails go out right after the page is sent, instead of before it. They are the same emails, in the same order.
+The one intended difference from IPS: notification emails go out right after the page is sent, instead of before it. They are the same emails, in the same order. The Elasticsearch fix (1.12.0) corrects an IPS bug: with "Maximum Results" below 1000 the index gets what IPS sends with 1000 or more.
 
 ## What Performance Optimizer fixes
 
@@ -59,6 +59,7 @@ The one intended difference from IPS: notification emails go out right after the
 | Notification emails | Sent them over SMTP before the page went back to the user | Reacting no longer waits about 240 ms for the mail server |
 | Template copies on disk | After a cache clear it could rewrite a stale copy on every request | 50–70 ms per topic page and no more "Class … not found" errors |
 | Pages blocks | One query per block and per block category | Topic blocks: 52 → 18 ms; sidebar widgets: 5 fewer queries |
+| Elasticsearch with "Maximum Results" below 1000 | Elasticsearch silently refused some index updates and deletes (last-post marker, deleted content) | A forum with 500: 38,908 posts kept the marker in 29,610 topics; now every such update goes through |
 
 The settings page shows, for every fix, whether it works on this forum and, if not, why: no Pages, clubs switched off, no Redis, and so on. A fix for a part of IPS the forum does not use does nothing.
 

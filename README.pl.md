@@ -10,7 +10,7 @@ To repozytorium jest publicznym kanałem wydań: aktualne wersje, changelog i wy
 
 | Plugin | Wersja | Wydana | Dla |
 | --- | --- | --- | --- |
-| Performance Optimizer | 1.11.0 | 2026-10-18 | Invision Community 4.7 |
+| Performance Optimizer | 1.12.0 | 2026-10-18 | Invision Community 4.7 |
 | Performance Monitor | 1.6.0 | 2026-10-18 | Invision Community 4.7 |
 
 IPS sam sprawdza nowe wersje, gdy plugin ma klucz licencji (do Monitora darmowy): każdy plugin czyta swój plik w tym repozytorium ([`optimizer/latest.json`](optimizer/latest.json), [`monitor/latest.json`](monitor/latest.json)), a ACP pokazuje przy pluginie plakietkę „nowa wersja”.
@@ -35,7 +35,7 @@ Wynik zależy od forum: wielkości, motywu, dodatków, hostingu i odległości d
 | Bez zmian w strukturze bazy i w plikach IPS | Plugin nie dodaje tabel, kolumn ani indeksów. Odinstalowanie zostawia czysty IPS. |
 | Zgodność z innymi dodatkami | Test ładuje wszystkie klasy z hookami zainstalowanych aplikacji. Konflikt, który położyłby forum, wychodzi przed wydaniem. |
 
-Jedyna zamierzona różnica względem IPS: maile z powiadomień wychodzą tuż po wysłaniu strony, a nie przed. To te same maile, w tej samej kolejności.
+Jedyna zamierzona różnica względem IPS: maile z powiadomień wychodzą tuż po wysłaniu strony, a nie przed. To te same maile, w tej samej kolejności. Poprawka dla Elasticsearcha (1.12.0) naprawia błąd IPS: przy „Maximum Results” poniżej 1000 indeks dostaje to, co IPS wysyła przy 1000 i więcej.
 
 ## Co poprawia Performance Optimizer
 
@@ -59,6 +59,7 @@ Jedyna zamierzona różnica względem IPS: maile z powiadomień wychodzą tuż p
 | Maile z powiadomień | Wysyłał je przez SMTP, zanim strona wróciła do klikającego | Reakcja nie czeka ok. 240 ms na serwer poczty |
 | Kopie szablonów na dysku | Po czyszczeniu cache potrafił przepisywać starą kopię przy każdym wejściu | 50–70 ms na stronę tematu i koniec błędów „Class … not found” |
 | Bloki Pages | Każdy blok i jego kategoria osobnym zapytaniem | Bloki tematu: 52 → 18 ms; widżety boczne: 5 zapytań mniej |
+| Elasticsearch przy „Maximum Results” poniżej 1000 | Elasticsearch po cichu odrzucał część zmian w indeksie (znacznik ostatniego posta, usuwanie skasowanej treści) | Forum z 500: 38 908 postów ze znacznikiem w 29 610 tematach; teraz każda taka zmiana przechodzi |
 
 Ustawienia pokazują przy każdej poprawce, czy działa na tym forum, a jeśli nie, dlaczego: brak Pages, wyłączone kluby, brak Redisa i tak dalej. Poprawka dla części IPS, której forum nie używa, nic nie robi.
 
