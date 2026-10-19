@@ -1,8 +1,8 @@
 {
-    "version": "1.15.0",
-    "longversion": 11500,
-    "released": 1792396067,
+    "version": "1.16.0",
+    "longversion": 11600,
+    "released": 1792396907,
     "updateurl": "https://github.com/IQ-Level/iql-ips-performance-updates",
-    "releasenotes": "Profile fields in the REST API: IPS selected the author's profile field values once for every post, topic and Pages record in a response, again and again for the same member (17.5 queries per page of a topic's posts, 35 per list of Pages records). Each member's values are now read once per request; IPS's own code still decides who sees which field, and values written during the request are read again at once. List of 35 records by 6 authors: 27-28 -> 6 queries. Separate switch in the settings.",
-    "published": "2026-10-19T07:47:47+00:00"
+    "releasenotes": "Topic pages in the REST API for moderators: with hidden=1 (the mobile app among others), MariaDB picked the date index of the whole forum for the first and the last pages of a large topic. The plugin now leaves out only that one index for exactly this query: 0.1-1.9 s -> 0.3-1.4 ms with 0.5 million posts, 2-14 s -> 0.5 ms with 3.2 million. The same posts in the same order; the usual API query (hidden=0) stays as it is. Part of the \"Pages of large topics\" switch.",
+    "published": "2026-10-19T08:01:47+00:00"
 }
