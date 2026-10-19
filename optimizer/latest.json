@@ -1,8 +1,8 @@
 {
-    "version": "1.14.0",
-    "longversion": 11400,
-    "released": 1792340810,
+    "version": "1.15.0",
+    "longversion": 11500,
+    "released": 1792396067,
     "updateurl": "https://github.com/IQ-Level/iql-ips-performance-updates",
-    "releasenotes": "Profile fields next to posts: IPS selected the list of profile fields once for every post author on a page, and in archived topics also each author's values one by one. The list is now read once per request and the values of the page's authors with one query; IPS's own code still decides who sees which field. About 9 ms per topic page; for a guest, an archived topic with 16 authors: 50 -> 20 queries. Separate switch in the settings.",
-    "published": "2026-10-18T16:26:50+00:00"
+    "releasenotes": "Profile fields in the REST API: IPS selected the author's profile field values once for every post, topic and Pages record in a response, again and again for the same member (17.5 queries per page of a topic's posts, 35 per list of Pages records). Each member's values are now read once per request; IPS's own code still decides who sees which field, and values written during the request are read again at once. List of 35 records by 6 authors: 27-28 -> 6 queries. Separate switch in the settings.",
+    "published": "2026-10-19T07:47:47+00:00"
 }
