@@ -1,8 +1,8 @@
 {
-    "version": "1.6.0",
-    "longversion": 10600,
-    "released": 1792332677,
+    "version": "1.7.0",
+    "longversion": 10700,
+    "released": 1792399176,
     "updateurl": "https://github.com/IQ-Level/iql-ips-performance-updates",
-    "releasenotes": "Free licence key (0 zł) in the settings: it turns on new-version notices. Measurements work the same without it.",
-    "published": "2026-10-18T14:11:17+00:00"
+    "releasenotes": "Lifetime licence for every copy for now: no key is asked for and the licence server is not contacted; IPS checks for new versions. The Monitor is sold with the Optimizer as the IQL Performance Suite and accepts the suite's key, the same as in the Optimizer. The licence section no longer calls the Monitor free.",
+    "published": "2026-10-19T08:39:36+00:00"
 }

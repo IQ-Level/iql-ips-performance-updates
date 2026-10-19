@@ -1,8 +1,8 @@
 {
-    "version": "1.17.0",
-    "longversion": 11700,
-    "released": 1792398684,
+    "version": "1.18.0",
+    "longversion": 11800,
+    "released": 1792399176,
     "updateurl": "https://github.com/IQ-Level/iql-ips-performance-updates",
-    "releasenotes": "A topic's first and last post: the same post as IPS also when two posts share a second. Since 1.1.0 the plugin forced the topic's index for this query; where IPS reads another index or sorts, that could return the other of two posts written in the same second, and a member's last post in a large topic was slower than IPS's own plan. The plugin now only leaves out the date index of the whole forum, as for topic pages: IPS's own plan wherever the database would not use it, 0.6-1.2 s -> 1-2 ms where IPS walked it. Needs the post_date index as well.",
-    "published": "2026-10-19T08:31:24+00:00"
+    "releasenotes": "Lifetime licence for every copy for now: the plugin no longer asks for a key and does not contact the licence server, IPS checks for new versions, and the settings show one line, \"Lifetime licence\". A key of the IQL Performance Suite (one key for both plugins) is accepted as well as a key of the Optimizer alone; before, a suite key was refused.",
+    "published": "2026-10-19T08:39:36+00:00"
 }
