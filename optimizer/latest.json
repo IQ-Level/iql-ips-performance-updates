@@ -1,8 +1,8 @@
 {
-    "version": "1.16.0",
-    "longversion": 11600,
-    "released": 1792396907,
+    "version": "1.17.0",
+    "longversion": 11700,
+    "released": 1792398684,
     "updateurl": "https://github.com/IQ-Level/iql-ips-performance-updates",
-    "releasenotes": "Topic pages in the REST API for moderators: with hidden=1 (the mobile app among others), MariaDB picked the date index of the whole forum for the first and the last pages of a large topic. The plugin now leaves out only that one index for exactly this query: 0.1-1.9 s -> 0.3-1.4 ms with 0.5 million posts, 2-14 s -> 0.5 ms with 3.2 million. The same posts in the same order; the usual API query (hidden=0) stays as it is. Part of the \"Pages of large topics\" switch.",
-    "published": "2026-10-19T08:01:47+00:00"
+    "releasenotes": "A topic's first and last post: the same post as IPS also when two posts share a second. Since 1.1.0 the plugin forced the topic's index for this query; where IPS reads another index or sorts, that could return the other of two posts written in the same second, and a member's last post in a large topic was slower than IPS's own plan. The plugin now only leaves out the date index of the whole forum, as for topic pages: IPS's own plan wherever the database would not use it, 0.6-1.2 s -> 1-2 ms where IPS walked it. Needs the post_date index as well.",
+    "published": "2026-10-19T08:31:24+00:00"
 }

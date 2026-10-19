@@ -10,7 +10,7 @@ To repozytorium jest publicznym kanałem wydań: aktualne wersje, changelog i wy
 
 | Plugin | Wersja | Wydana | Dla |
 | --- | --- | --- | --- |
-| Performance Optimizer | 1.16.0 | 2026-10-19 | Invision Community 4.7 |
+| Performance Optimizer | 1.17.0 | 2026-10-19 | Invision Community 4.7 |
 | Performance Monitor | 1.6.0 | 2026-10-18 | Invision Community 4.7 |
 
 IPS sam sprawdza nowe wersje, gdy plugin ma klucz licencji (do Monitora darmowy): każdy plugin czyta swój plik w tym repozytorium ([`optimizer/latest.json`](optimizer/latest.json), [`monitor/latest.json`](monitor/latest.json)), a ACP pokazuje przy pluginie plakietkę „nowa wersja”.
@@ -43,7 +43,7 @@ Jedyna zamierzona różnica względem IPS: maile z powiadomień wychodzą tuż p
 | --- | --- | --- |
 | Podmiana tłumaczeń | Przechodził całą stronę osobno dla każdej frazy, cztery razy (ok. 11 tys. przejść na stronę tematu) | Temat: 403 → 32 ms; strona 1,2 MB: 2,3 → 0,04 s |
 | Tłumaczenia w API | Dla każdego tekstu odpowiedzi kodował od nowa wszystkie frazy | Duża odpowiedź: 2,4–2,8 → 0,04–0,05 s, koniec timeoutów aplikacji |
-| Pierwszy i ostatni post tematu | Szukał po indeksie dat całego forum | 4,018 → 0,001 s na zapytanie |
+| Pierwszy i ostatni post tematu | Szukał po indeksie dat całego forum | 4,018 → 0,001 s na zapytanie; od 1.17.0 ten sam post co w IPS także przy dwóch postach z tej samej sekundy |
 | Strony dużych tematów (1.13.0) | Przy pierwszych i ostatnich stronach szukał po indeksie dat całego forum | Strona 1 tematów z 12–110 tys. postów: 0,6–3,6 s → 0,5–0,7 ms (baza testowa, 3,1 mln postów) |
 | Strony tematu w REST API dla moderatorów (1.16.0) | Z hidden=1 przy pierwszych i ostatnich stronach dużych tematów szukał po indeksie dat całego forum | 0,1–1,9 s → 0,3–1,4 ms (baza testowa, 0,5 mln postów); 2–14 s → 0,5 ms (3,2 mln postów) |
 | Pola profilu przy postach (1.14.0) | Pobierał listę pól osobno dla każdego autora na stronie, a w tematach w archiwum także wartości każdego autora osobno | Ok. 9 ms na stronę tematu; temat w archiwum z 16 autorami: 50 → 20 zapytań |
