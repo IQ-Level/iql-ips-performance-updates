@@ -10,7 +10,7 @@ This repository is the public release channel: current versions, changelog and r
 
 | Plugin | Version | Released | For |
 | --- | --- | --- | --- |
-| Performance Optimizer | 1.20.0 | 2026-10-21 | Invision Community 4.7 |
+| Performance Optimizer | 1.21.0 | 2026-10-22 | Invision Community 4.7 |
 | Performance Monitor | 1.7.0 | 2026-10-19 | Invision Community 4.7 |
 
 IPS checks for new versions on its own (every copy has a lifetime licence for now, no key needed): each plugin reads its file in this repository ([`optimizer/latest.json`](optimizer/latest.json), [`monitor/latest.json`](monitor/latest.json)) and the ACP shows a "new version" badge next to the plugin.
@@ -48,6 +48,7 @@ The one intended difference from IPS: notification emails go out right after the
 | Topic pages in the REST API for moderators (1.16.0) | With hidden=1, for the first and the last pages of large topics, walked the date index of the whole forum | 0.1–1.9 s → 0.3–1.4 ms (test database, 0.5 million posts); 2–14 s → 0.5 ms (3.2 million posts) |
 | Profile fields next to posts (1.14.0) | Selected the list of profile fields once per author on the page and, in archived topics, each author's values one by one | About 9 ms per topic page; archived topic with 16 authors: 50 → 20 queries |
 | Profile fields in the REST API (1.15.0) | Selected the author's profile field values once for every post, topic and record in a response, the same member again and again | List of 35 records by 6 authors: 27–28 → 6 queries (before: 17.5 per page of a topic's posts, 35 per list of records) |
+| Reactions, tags and ratings in REST API lists (1.21.0) | Asked about the reactions, tags and rating of every post, topic and Pages record of a page on its own | List of 35 Pages records: 73 → 2 such queries (about 70 ms on the forum); page of 25 posts: 27 → 3 queries |
 | File URLs in posts | Replaced the storage tag once per image | 160 posts: 198 → 4 ms |
 | Recognize | Queried the database before checking the permission | About 50 fewer queries per topic page |
 | Datastore from Redis | Read every key on its own | About 130 fewer Redis commands per request |

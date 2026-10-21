@@ -10,7 +10,7 @@ To repozytorium jest publicznym kanałem wydań: aktualne wersje, changelog i wy
 
 | Plugin | Wersja | Wydana | Dla |
 | --- | --- | --- | --- |
-| Performance Optimizer | 1.20.0 | 2026-10-21 | Invision Community 4.7 |
+| Performance Optimizer | 1.21.0 | 2026-10-22 | Invision Community 4.7 |
 | Performance Monitor | 1.7.0 | 2026-10-19 | Invision Community 4.7 |
 
 IPS sam sprawdza nowe wersje (na razie każda kopia ma licencję dożywotnią, bez klucza): każdy plugin czyta swój plik w tym repozytorium ([`optimizer/latest.json`](optimizer/latest.json), [`monitor/latest.json`](monitor/latest.json)), a ACP pokazuje przy pluginie plakietkę „nowa wersja”.
@@ -48,6 +48,7 @@ Jedyna zamierzona różnica względem IPS: maile z powiadomień wychodzą tuż p
 | Strony tematu w REST API dla moderatorów (1.16.0) | Z hidden=1 przy pierwszych i ostatnich stronach dużych tematów szukał po indeksie dat całego forum | 0,1–1,9 s → 0,3–1,4 ms (baza testowa, 0,5 mln postów); 2–14 s → 0,5 ms (3,2 mln postów) |
 | Pola profilu przy postach (1.14.0) | Pobierał listę pól osobno dla każdego autora na stronie, a w tematach w archiwum także wartości każdego autora osobno | Ok. 9 ms na stronę tematu; temat w archiwum z 16 autorami: 50 → 20 zapytań |
 | Pola profilu w REST API (1.15.0) | Pobierał wartości pól autora osobno dla każdego posta, tematu i rekordu w odpowiedzi, tę samą osobę wiele razy | Lista 35 rekordów 6 autorów: 27–28 → 6 zapytań (przedtem 17,5 na stronę postów tematu, 35 na listę rekordów) |
+| Reakcje, tagi i oceny na listach REST API (1.21.0) | Pytał o reakcje, tagi i ocenę każdego posta, tematu i rekordu Pages na stronie osobno | Lista 35 rekordów Pages: 73 → 2 takie zapytania (ok. 70 ms na forum); strona 25 postów: 27 → 3 zapytania |
 | Adresy plików w postach | Podmieniał znacznik osobno dla każdego obrazka | 160 postów: 198 → 4 ms |
 | Wyróżnienia (recognize) | Pytał bazę przed sprawdzeniem uprawnienia | Ok. 50 zapytań mniej na stronę tematu |
 | Datastore z Redisa | Pobierał każdy klucz osobno | Ok. 130 poleceń Redisa mniej na wejście |
