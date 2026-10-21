@@ -1,8 +1,8 @@
 {
-    "version": "1.20.0",
-    "longversion": 12000,
-    "released": 1792608678,
+    "version": "1.21.0",
+    "longversion": 12100,
+    "released": 1792621060,
     "updateurl": "https://github.com/IQ-Level/iql-ips-performance-updates",
-    "releasenotes": "A faster search page on forums with Pages databases. The search form shows a category picker for every database, and IPS asked the database for the subcategories of each category on its own: 111.5 queries and about 110 ms on every visit to the search page on the forum we measured. One level of a database's category tree now comes with one query, the same query IPS runs, and every category's list is still built by IPS's own code at the moment IPS builds it, so everyone sees exactly the categories they saw before. On a test database with 9 databases and about 500 categories: 68-123 -> 23-35 such queries per search page. Pages that list a database's categories gain the same way. Separate switch; needs Pages.",
-    "published": "2026-10-21T18:51:18+00:00"
+    "releasenotes": "Faster lists in the REST API, the mobile app among others (posts of a topic, the list of topics, Pages records). IPS asked the database about the reactions, tags and rating of every record of a page on its own: 73 queries (about 70 ms) per list of Pages records on the forum we measured. The reactions and tags of a whole page now come with one query made of IPS's own queries, so every record gets exactly what IPS would read for it, and IPS's own code still builds every record. On a test database: a page of 25 posts 27 -> 3 queries, a list of 35 Pages records 106 -> 38. Separate switch in the settings.",
+    "published": "2026-10-21T22:17:40+00:00"
 }
