@@ -11,7 +11,7 @@ To repozytorium jest publicznym kanałem wydań: aktualne wersje, changelog i wy
 | Plugin | Wersja | Wydana | Dla |
 | --- | --- | --- | --- |
 | Performance Optimizer | 1.21.0 | 2026-10-22 | Invision Community 4.7 |
-| Performance Monitor | 1.7.0 | 2026-10-19 | Invision Community 4.7 |
+| Performance Monitor | 1.8.0 | 2026-10-22 | Invision Community 4.7 |
 
 IPS sam sprawdza nowe wersje (na razie każda kopia ma licencję dożywotnią, bez klucza): każdy plugin czyta swój plik w tym repozytorium ([`optimizer/latest.json`](optimizer/latest.json), [`monitor/latest.json`](monitor/latest.json)), a ACP pokazuje przy pluginie plakietkę „nowa wersja”.
 
@@ -72,7 +72,7 @@ Ustawienia pokazują przy każdej poprawce, czy działa na tym forum, a jeśli n
 
 ## Co mierzy Performance Monitor
 
-Próbkę wejść: czas każdej strony, zapytania SQL pogrupowane według wzorca z linią kodu, która je wysłała, szablony, bloki Pages, wywołania HTTP (np. Elasticsearch), profil PHP (z rozszerzeniem excimer) oraz najwolniejsze wejścia i to, na co czekały. Ma raport w ACP, blok na pulpicie z wykresem z 48 godzin, porównanie przed i po oraz eksport JSON. Tylko mierzy, a wyniki zapisuje w Redisie po wysłaniu strony.
+Próbkę wejść: czas każdej strony, zapytania SQL pogrupowane według wzorca z linią kodu, która je wysłała, szablony, bloki Pages, wywołania HTTP (np. Elasticsearch), maile wysyłane, gdy odwiedzający czeka, czas CPU PHP i czas, którego nic mierzonego nie wyjaśnia (np. dodatek czekający na swój serwer), profil PHP (z rozszerzeniem excimer) oraz najwolniejsze wejścia i to, na co czekały. Ma raport w ACP, blok na pulpicie z wykresem z 48 godzin, porównanie przed i po oraz eksport JSON. Tylko mierzy, a wyniki zapisuje w Redisie po wysłaniu strony.
 
 ## Poza pluginami: własne szablony i dodatki
 

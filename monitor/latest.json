@@ -1,8 +1,8 @@
 {
-    "version": "1.7.0",
-    "longversion": 10700,
-    "released": 1792399176,
+    "version": "1.8.0",
+    "longversion": 10800,
+    "released": 1792621506,
     "updateurl": "https://github.com/IQ-Level/iql-ips-performance-updates",
-    "releasenotes": "Lifetime licence for every copy for now: no key is asked for and the licence server is not contacted; IPS checks for new versions. The Monitor is sold with the Optimizer as the IQL Performance Suite and accepts the suite's key, the same as in the Optimizer. The licence section no longer calls the Monitor free.",
-    "published": "2026-10-19T08:39:36+00:00"
+    "releasenotes": "What a slow page waited for beyond SQL and HTTP: the time of emails sent while the visitor waits (SMTP, mail()), PHP's CPU time, and \"other\": the time nothing measured explains, such as an add-on waiting for its own server. New columns in the pages and slow requests tabs and in the export.",
+    "published": "2026-10-21T22:25:06+00:00"
 }

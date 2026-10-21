@@ -11,7 +11,7 @@ This repository is the public release channel: current versions, changelog and r
 | Plugin | Version | Released | For |
 | --- | --- | --- | --- |
 | Performance Optimizer | 1.21.0 | 2026-10-22 | Invision Community 4.7 |
-| Performance Monitor | 1.7.0 | 2026-10-19 | Invision Community 4.7 |
+| Performance Monitor | 1.8.0 | 2026-10-22 | Invision Community 4.7 |
 
 IPS checks for new versions on its own (every copy has a lifetime licence for now, no key needed): each plugin reads its file in this repository ([`optimizer/latest.json`](optimizer/latest.json), [`monitor/latest.json`](monitor/latest.json)) and the ACP shows a "new version" badge next to the plugin.
 
@@ -72,7 +72,7 @@ The settings page shows, for every fix, whether it works on this forum and, if n
 
 ## What Performance Monitor measures
 
-A sample of requests: the time of every page, SQL queries grouped by pattern with the line of code that sent them, templates, Pages blocks, HTTP calls (such as Elasticsearch), a PHP profile (with the excimer extension), and the slowest requests with what they waited for. It has a report in the ACP, a dashboard block with a 48-hour chart, a before and after comparison and a JSON export. It only measures, and saves its results to Redis after the page has been sent.
+A sample of requests: the time of every page, SQL queries grouped by pattern with the line of code that sent them, templates, Pages blocks, HTTP calls (such as Elasticsearch), emails sent while the visitor waits, PHP's CPU time and the time nothing measured explains (an add-on waiting on its own server), a PHP profile (with the excimer extension), and the slowest requests with what they waited for. It has a report in the ACP, a dashboard block with a 48-hour chart, a before and after comparison and a JSON export. It only measures, and saves its results to Redis after the page has been sent.
 
 ## Beyond the plugins: custom templates and add-ons
 
