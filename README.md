@@ -10,7 +10,7 @@ This repository is the public release channel: current versions, changelog and r
 
 | Plugin | Version | Released | For |
 | --- | --- | --- | --- |
-| Performance Optimizer | 1.18.0 | 2026-10-19 | Invision Community 4.7 |
+| Performance Optimizer | 1.19.0 | 2026-10-21 | Invision Community 4.7 |
 | Performance Monitor | 1.7.0 | 2026-10-19 | Invision Community 4.7 |
 
 IPS checks for new versions on its own (every copy has a lifetime licence for now, no key needed): each plugin reads its file in this repository ([`optimizer/latest.json`](optimizer/latest.json), [`monitor/latest.json`](monitor/latest.json)) and the ACP shows a "new version" badge next to the plugin.
@@ -35,7 +35,7 @@ Results depend on the forum: its size, theme, add-ons, hosting and the distance 
 | No changes to the database structure or to IPS files | No tables, columns or indexes are added. Uninstalling leaves plain IPS. |
 | Works with your other add-ons | A test loads every class hooked by the installed applications. A conflict that would take a forum down is caught before release. |
 
-The one intended difference from IPS: notification emails go out right after the page is sent, instead of before it. They are the same emails, in the same order. The Elasticsearch fix (1.12.0) corrects an IPS bug: with "Maximum Results" below 1000 the index gets what IPS sends with 1000 or more.
+The one intended difference from IPS: notification emails go out right after the page is sent, instead of before it. They are the same emails, in the same order. The Elasticsearch fix (1.12.0) corrects an IPS bug: with "Maximum Results" below 1000 the index gets what IPS sends with 1000 or more. Since 1.19.0 the search index (Elasticsearch) is also changed right after the page is sent, by IPS's own code; when one request changes the same topic several times, the index ends up as IPS leaves it when those changes come one by one.
 
 ## What Performance Optimizer fixes
 
@@ -64,6 +64,7 @@ The one intended difference from IPS: notification emails go out right after the
 | Template copies on disk | After a cache clear it could rewrite a stale copy on every request | 50–70 ms per topic page and no more "Class … not found" errors |
 | Pages blocks | One query per block and per block category | Topic blocks: 52 → 18 ms; sidebar widgets: 5 fewer queries |
 | Elasticsearch with "Maximum Results" below 1000 | Elasticsearch silently refused some index updates and deletes (last-post marker, deleted content) | A forum with 500: 38,908 posts kept the marker in 29,610 topics; now every such update goes through |
+| Search index after the page is sent (1.19.0) | Sent Elasticsearch up to six requests per new post, edit or deletion (fifteen through the REST API) before the page went back | "Send post" no longer waits for the search engine: on a forum 123 ms per reply on average, seconds at peaks, 1.3 s per post from the app; on Elasticsearch 7.17 a reply 41–50 → 4–5 ms |
 
 The settings page shows, for every fix, whether it works on this forum and, if not, why: no Pages, clubs switched off, no Redis, and so on. A fix for a part of IPS the forum does not use does nothing.
 

@@ -10,7 +10,7 @@ To repozytorium jest publicznym kanałem wydań: aktualne wersje, changelog i wy
 
 | Plugin | Wersja | Wydana | Dla |
 | --- | --- | --- | --- |
-| Performance Optimizer | 1.18.0 | 2026-10-19 | Invision Community 4.7 |
+| Performance Optimizer | 1.19.0 | 2026-10-21 | Invision Community 4.7 |
 | Performance Monitor | 1.7.0 | 2026-10-19 | Invision Community 4.7 |
 
 IPS sam sprawdza nowe wersje (na razie każda kopia ma licencję dożywotnią, bez klucza): każdy plugin czyta swój plik w tym repozytorium ([`optimizer/latest.json`](optimizer/latest.json), [`monitor/latest.json`](monitor/latest.json)), a ACP pokazuje przy pluginie plakietkę „nowa wersja”.
@@ -35,7 +35,7 @@ Wynik zależy od forum: wielkości, motywu, dodatków, hostingu i odległości d
 | Bez zmian w strukturze bazy i w plikach IPS | Plugin nie dodaje tabel, kolumn ani indeksów. Odinstalowanie zostawia czysty IPS. |
 | Zgodność z innymi dodatkami | Test ładuje wszystkie klasy z hookami zainstalowanych aplikacji. Konflikt, który położyłby forum, wychodzi przed wydaniem. |
 
-Jedyna zamierzona różnica względem IPS: maile z powiadomień wychodzą tuż po wysłaniu strony, a nie przed. To te same maile, w tej samej kolejności. Poprawka dla Elasticsearcha (1.12.0) naprawia błąd IPS: przy „Maximum Results” poniżej 1000 indeks dostaje to, co IPS wysyła przy 1000 i więcej.
+Jedyna zamierzona różnica względem IPS: maile z powiadomień wychodzą tuż po wysłaniu strony, a nie przed. To te same maile, w tej samej kolejności. Poprawka dla Elasticsearcha (1.12.0) naprawia błąd IPS: przy „Maximum Results” poniżej 1000 indeks dostaje to, co IPS wysyła przy 1000 i więcej. Od 1.19.0 indeks wyszukiwarki (Elasticsearch) zmienia się tuż po wysłaniu strony, kodem IPS; gdy jedno żądanie zmienia ten sam temat kilka razy, indeks jest taki, jaki IPS zostawia przy tych zmianach po kolei w osobnych żądaniach.
 
 ## Co poprawia Performance Optimizer
 
@@ -64,6 +64,7 @@ Jedyna zamierzona różnica względem IPS: maile z powiadomień wychodzą tuż p
 | Kopie szablonów na dysku | Po czyszczeniu cache potrafił przepisywać starą kopię przy każdym wejściu | 50–70 ms na stronę tematu i koniec błędów „Class … not found” |
 | Bloki Pages | Każdy blok i jego kategoria osobnym zapytaniem | Bloki tematu: 52 → 18 ms; widżety boczne: 5 zapytań mniej |
 | Elasticsearch przy „Maximum Results” poniżej 1000 | Elasticsearch po cichu odrzucał część zmian w indeksie (znacznik ostatniego posta, usuwanie skasowanej treści) | Forum z 500: 38 908 postów ze znacznikiem w 29 610 tematach; teraz każda taka zmiana przechodzi |
+| Indeks wyszukiwarki po wysłaniu strony (1.19.0) | Wysyłał do Elasticsearcha do sześciu żądań na nowy post, edycję czy usunięcie (przez REST API piętnaście), zanim strona wróciła | „Wyślij post” nie czeka już na wyszukiwarkę: na forum średnio 123 ms na odpowiedź, w szczytach sekundy, 1,3 s na post z aplikacji; na Elasticsearchu 7.17 odpowiedź 41–50 → 4–5 ms |
 
 Ustawienia pokazują przy każdej poprawce, czy działa na tym forum, a jeśli nie, dlaczego: brak Pages, wyłączone kluby, brak Redisa i tak dalej. Poprawka dla części IPS, której forum nie używa, nic nie robi.
 
