@@ -10,7 +10,7 @@ This repository is the public release channel: current versions, changelog and r
 
 | Plugin | Version | Released | For |
 | --- | --- | --- | --- |
-| Performance Optimizer | 1.19.0 | 2026-10-21 | Invision Community 4.7 |
+| Performance Optimizer | 1.20.0 | 2026-10-21 | Invision Community 4.7 |
 | Performance Monitor | 1.7.0 | 2026-10-19 | Invision Community 4.7 |
 
 IPS checks for new versions on its own (every copy has a lifetime licence for now, no key needed): each plugin reads its file in this repository ([`optimizer/latest.json`](optimizer/latest.json), [`monitor/latest.json`](monitor/latest.json)) and the ACP shows a "new version" badge next to the plugin.
@@ -65,6 +65,7 @@ The one intended difference from IPS: notification emails go out right after the
 | Pages blocks | One query per block and per block category | Topic blocks: 52 → 18 ms; sidebar widgets: 5 fewer queries |
 | Elasticsearch with "Maximum Results" below 1000 | Elasticsearch silently refused some index updates and deletes (last-post marker, deleted content) | A forum with 500: 38,908 posts kept the marker in 29,610 topics; now every such update goes through |
 | Search index after the page is sent (1.19.0) | Sent Elasticsearch up to six requests per new post, edit or deletion (fifteen through the REST API) before the page went back | "Send post" no longer waits for the search engine: on a forum 123 ms per reply on average, seconds at peaks, 1.3 s per post from the app; on Elasticsearch 7.17 a reply 41–50 → 4–5 ms |
+| Pages database categories (1.20.0) | Asked the database for the subcategories of every category on its own, on every search page | 111.5 queries and about 110 ms per search page → one query per database and level (test database: 68–123 → 23–35) |
 
 The settings page shows, for every fix, whether it works on this forum and, if not, why: no Pages, clubs switched off, no Redis, and so on. A fix for a part of IPS the forum does not use does nothing.
 
