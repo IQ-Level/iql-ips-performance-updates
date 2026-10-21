@@ -34,6 +34,7 @@ Both plugins are for Invision Community 4.7. Newest first.
 
 | Version | Date | Changes |
 | --- | --- | --- |
+| 1.8.0 | 2026-10-22 | What a slow page waited for, beyond SQL and HTTP: the time of emails sent while the visitor waits (SMTP, mail()), without the queries and HTTP calls inside the send, so nothing is counted twice; PHP's CPU time; and "other", the time that neither CPU nor SQL, HTTP, the datastore or emails explain, which is waiting for something the Monitor does not see, such as an add-on calling its own server with its own cURL. On the forum we measured, a contact form took 114.5 s with 54 ms of SQL and no HTTP: an anti-spam add-on waiting for its API. The new columns are in the pages and slow requests tabs and in the export; their averages count only requests measured by 1.8.0 or later. |
 | 1.7.0 | 2026-10-19 | Lifetime licence for every copy for now: no key is asked for and the licence server is not contacted; IPS checks for new versions. The Monitor is sold with the Optimizer as the IQL Performance Suite and accepts the suite's key, the same as in the Optimizer. The licence section no longer calls the Monitor free. |
 | 1.6.0 | 2026-10-18 | Licence key in the settings: it turns on IPS's new-version notices. A background task checks it once a day, never during a page view. Measurements work the same without it. |
 | 1.5.4 | 2026-10-17 | IPS checks for new versions on its own. |
