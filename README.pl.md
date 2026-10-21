@@ -10,7 +10,7 @@ To repozytorium jest publicznym kanałem wydań: aktualne wersje, changelog i wy
 
 | Plugin | Wersja | Wydana | Dla |
 | --- | --- | --- | --- |
-| Performance Optimizer | 1.19.0 | 2026-10-21 | Invision Community 4.7 |
+| Performance Optimizer | 1.20.0 | 2026-10-21 | Invision Community 4.7 |
 | Performance Monitor | 1.7.0 | 2026-10-19 | Invision Community 4.7 |
 
 IPS sam sprawdza nowe wersje (na razie każda kopia ma licencję dożywotnią, bez klucza): każdy plugin czyta swój plik w tym repozytorium ([`optimizer/latest.json`](optimizer/latest.json), [`monitor/latest.json`](monitor/latest.json)), a ACP pokazuje przy pluginie plakietkę „nowa wersja”.
@@ -65,6 +65,7 @@ Jedyna zamierzona różnica względem IPS: maile z powiadomień wychodzą tuż p
 | Bloki Pages | Każdy blok i jego kategoria osobnym zapytaniem | Bloki tematu: 52 → 18 ms; widżety boczne: 5 zapytań mniej |
 | Elasticsearch przy „Maximum Results” poniżej 1000 | Elasticsearch po cichu odrzucał część zmian w indeksie (znacznik ostatniego posta, usuwanie skasowanej treści) | Forum z 500: 38 908 postów ze znacznikiem w 29 610 tematach; teraz każda taka zmiana przechodzi |
 | Indeks wyszukiwarki po wysłaniu strony (1.19.0) | Wysyłał do Elasticsearcha do sześciu żądań na nowy post, edycję czy usunięcie (przez REST API piętnaście), zanim strona wróciła | „Wyślij post” nie czeka już na wyszukiwarkę: na forum średnio 123 ms na odpowiedź, w szczytach sekundy, 1,3 s na post z aplikacji; na Elasticsearchu 7.17 odpowiedź 41–50 → 4–5 ms |
+| Kategorie baz Pages (1.20.0) | Pytał bazę o podkategorie każdej kategorii osobno, na każdej stronie wyszukiwarki | 111,5 zapytania i ok. 110 ms na stronę wyszukiwarki → jedno zapytanie na bazę i poziom (baza testowa: 68–123 → 23–35) |
 
 Ustawienia pokazują przy każdej poprawce, czy działa na tym forum, a jeśli nie, dlaczego: brak Pages, wyłączone kluby, brak Redisa i tak dalej. Poprawka dla części IPS, której forum nie używa, nic nie robi.
 

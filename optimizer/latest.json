@@ -1,8 +1,8 @@
 {
-    "version": "1.19.0",
-    "longversion": 11900,
-    "released": 1792607870,
+    "version": "1.20.0",
+    "longversion": 12000,
+    "released": 1792608678,
     "updateurl": "https://github.com/IQ-Level/iql-ips-performance-updates",
-    "releasenotes": "\"Send post\" no longer waits for Elasticsearch. A new post, an edit, hiding or deleting content sent the search engine up to six requests (fifteen for a post through the REST API) while the member waited: 123 ms per reply on average on a forum, seconds at the worst moments, 1.3 s per post from the mobile app. Under PHP-FPM the same changes are now made by IPS's own code, in the same order, right after the page has been sent; the post is loaded from the database again then, so a post deleted or hidden in the meantime is indexed as it is. On Elasticsearch 7.17 in a test: a reply 41-50 ms -> 4-5 ms. Also fixed: emails of tasks IPS runs while ending a request were never sent. Separate switch; needs Elasticsearch and PHP-FPM.",
-    "published": "2026-10-21T18:37:50+00:00"
+    "releasenotes": "A faster search page on forums with Pages databases. The search form shows a category picker for every database, and IPS asked the database for the subcategories of each category on its own: 111.5 queries and about 110 ms on every visit to the search page on the forum we measured. One level of a database's category tree now comes with one query, the same query IPS runs, and every category's list is still built by IPS's own code at the moment IPS builds it, so everyone sees exactly the categories they saw before. On a test database with 9 databases and about 500 categories: 68-123 -> 23-35 such queries per search page. Pages that list a database's categories gain the same way. Separate switch; needs Pages.",
+    "published": "2026-10-21T18:51:18+00:00"
 }
