@@ -10,7 +10,7 @@ This repository is the public release channel: current versions, changelog and r
 
 | Plugin | Version | Released | For |
 | --- | --- | --- | --- |
-| Performance Optimizer | 1.21.0 | 2026-10-22 | Invision Community 4.7 |
+| Performance Optimizer | 1.22.0 | 2026-10-26 | Invision Community 4.7 |
 | Performance Monitor | 1.8.0 | 2026-10-22 | Invision Community 4.7 |
 
 IPS checks for new versions on its own (every copy has a lifetime licence for now, no key needed): each plugin reads its file in this repository ([`optimizer/latest.json`](optimizer/latest.json), [`monitor/latest.json`](monitor/latest.json)) and the ACP shows a "new version" badge next to the plugin.
@@ -49,6 +49,9 @@ The one intended difference from IPS: notification emails go out right after the
 | Profile fields next to posts (1.14.0) | Selected the list of profile fields once per author on the page and, in archived topics, each author's values one by one | About 9 ms per topic page; archived topic with 16 authors: 50 → 20 queries |
 | Profile fields in the REST API (1.15.0) | Selected the author's profile field values once for every post, topic and record in a response, the same member again and again | List of 35 records by 6 authors: 27–28 → 6 queries (before: 17.5 per page of a topic's posts, 35 per list of records) |
 | Reactions, tags and ratings in REST API lists (1.21.0) | Asked about the reactions, tags and rating of every post, topic and Pages record of a page on its own | List of 35 Pages records: 73 → 2 such queries (about 70 ms on the forum); page of 25 posts: 27 → 3 queries |
+| Front page for logged-in members (1.22.0) | Read every topic of the forum into a temporary table and sorted it, because of the condition for the member's own unapproved topics | 7.9 s → 4.2 ms for a member on the forum, the same topics (needs one index) |
+| Leaderboard (1.22.0) | Ran its slowest queries on every view | 6.4 s + 2.6 s → kept for 5–60 minutes |
+| Opening notifications (1.22.0) | Stamped every notification of the member as read again | Only the unread ones: 41–90 → 6–12 ms for members with 4000–6600 notifications (test database) |
 | File URLs in posts | Replaced the storage tag once per image | 160 posts: 198 → 4 ms |
 | Recognize | Queried the database before checking the permission | About 50 fewer queries per topic page |
 | Datastore from Redis | Read every key on its own | About 130 fewer Redis commands per request |

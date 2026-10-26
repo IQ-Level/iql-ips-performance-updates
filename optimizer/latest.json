@@ -1,8 +1,8 @@
 {
-    "version": "1.21.0",
-    "longversion": 12100,
-    "released": 1792621060,
+    "version": "1.22.0",
+    "longversion": 12200,
+    "released": 1793019735,
     "updateurl": "https://github.com/IQ-Level/iql-ips-performance-updates",
-    "releasenotes": "Faster lists in the REST API, the mobile app among others (posts of a topic, the list of topics, Pages records). IPS asked the database about the reactions, tags and rating of every record of a page on its own: 73 queries (about 70 ms) per list of Pages records on the forum we measured. The reactions and tags of a whole page now come with one query made of IPS's own queries, so every record gets exactly what IPS would read for it, and IPS's own code still builds every record. On a test database: a page of 25 posts 27 -> 3 queries, a list of 35 Pages records 106 -> 38. Separate switch in the settings.",
-    "published": "2026-10-21T22:17:40+00:00"
+    "releasenotes": "The forum's front page for logged-in members up to 2000 times faster: on the forum we measured, the simplified forum view took 8 seconds for some members, every time; now 4 ms, the same topics in the same order (needs one index, added by the admin; the settings page shows the command). The leaderboard page no longer runs its slowest queries on every view (6.4 s + 2.6 s measured): results are kept for 5 to 60 minutes. Opening the notifications list no longer rewrites a member's whole notification history. The topic count of the simplified view is kept for 2 minutes. Fixed an IPS 4.7.25 bug that broke the preview of archived topics whose newest post is hidden. Each change has its own switch.",
+    "published": "2026-10-26T13:02:15+00:00"
 }
