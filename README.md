@@ -10,7 +10,7 @@ This repository is the public release channel: current versions, changelog and r
 
 | Plugin | Version | Released | For |
 | --- | --- | --- | --- |
-| Performance Optimizer | 1.22.0 | 2026-10-26 | Invision Community 4.7 |
+| Performance Optimizer | 1.23.0 | 2026-10-26 | Invision Community 4.7 |
 | Performance Monitor | 1.8.0 | 2026-10-22 | Invision Community 4.7 |
 
 IPS checks for new versions on its own (every copy has a lifetime licence for now, no key needed): each plugin reads its file in this repository ([`optimizer/latest.json`](optimizer/latest.json), [`monitor/latest.json`](monitor/latest.json)) and the ACP shows a "new version" badge next to the plugin.
@@ -52,6 +52,8 @@ The one intended difference from IPS: notification emails go out right after the
 | Front page for logged-in members (1.22.0) | Read every topic of the forum into a temporary table and sorted it, because of the condition for the member's own unapproved topics | 7.9 s → 4.2 ms for a member on the forum, the same topics (needs one index) |
 | Leaderboard (1.22.0) | Ran its slowest queries on every view | 6.4 s + 2.6 s → kept for 5–60 minutes |
 | Opening notifications (1.22.0) | Stamped every notification of the member as read again | Only the unread ones: 41–90 → 6–12 ms for members with 4000–6600 notifications (test database) |
+| Clubs under post authors (1.23.0) | Threw away every cached club list on each run of the club rebuild task, even when nothing changed | Lists kept for 6 hours and renewed only on a real change |
+| Notifications (1.23.0) | Read every notification's post, topic and author one by one | One query per page of notifications, in the dropdown and in the REST API |
 | File URLs in posts | Replaced the storage tag once per image | 160 posts: 198 → 4 ms |
 | Recognize | Queried the database before checking the permission | About 50 fewer queries per topic page |
 | Datastore from Redis | Read every key on its own | About 130 fewer Redis commands per request |

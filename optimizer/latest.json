@@ -1,8 +1,8 @@
 {
-    "version": "1.22.0",
-    "longversion": 12200,
-    "released": 1793019735,
+    "version": "1.23.0",
+    "longversion": 12300,
+    "released": 1793042110,
     "updateurl": "https://github.com/IQ-Level/iql-ips-performance-updates",
-    "releasenotes": "The forum's front page for logged-in members up to 2000 times faster: on the forum we measured, the simplified forum view took 8 seconds for some members, every time; now 4 ms, the same topics in the same order (needs one index, added by the admin; the settings page shows the command). The leaderboard page no longer runs its slowest queries on every view (6.4 s + 2.6 s measured): results are kept for 5 to 60 minutes. Opening the notifications list no longer rewrites a member's whole notification history. The topic count of the simplified view is kept for 2 minutes. Fixed an IPS 4.7.25 bug that broke the preview of archived topics whose newest post is hidden. Each change has its own switch.",
-    "published": "2026-10-26T13:02:15+00:00"
+    "releasenotes": "Topic pages and notifications with fewer database queries. The clubs shown under post authors no longer reload after every run of IPS's club rebuild task when nothing changed (on the forum we measured that task rewrote all 490 clubs every 20 minutes, with no club active in the meantime, and each run threw away every cached list), and the lists are kept for 6 hours instead of 10 minutes. The notifications dropdown, the notifications page and the REST API notifications list (the mobile app) read the posts, topics and authors they show with one query, and the API skips queries that can never return anything. Language strings in large API responses are replaced about 4 times faster. Every result stays exactly what IPS returns. Each change has its own switch.",
+    "published": "2026-10-26T19:15:10+00:00"
 }
