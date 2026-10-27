@@ -1,8 +1,8 @@
 {
-    "version": "1.24.0",
-    "longversion": 12400,
-    "released": 1793098674,
+    "version": "1.24.1",
+    "longversion": 12401,
+    "released": 1793108944,
     "updateurl": "https://github.com/IQ-Level/iql-ips-performance-updates",
-    "releasenotes": "Faster topic pages. The badges of every post's author come with one query instead of one per post, the authors of archived topics too, club categories once per page, and the \"who's viewing\" box decodes only members' sessions (1000 sessions: 8.6 -> 0.6 ms). PHP 8.1 deprecation notices (on the forum we measured: about 940 per topic page) no longer go through IPS's costly error handling, and language strings are replaced only where they can be. Pages past the middle of very large topics now get the fast index too (about 200 ms on 5% of topic views before). New, off by default: Pages blocks placed in templates can honour the admin's own \"Cache this block\" setting, as sidebar blocks always did. Each change has its own switch.",
-    "published": "2026-10-27T10:57:54+00:00"
+    "releasenotes": "Safer cache for Pages blocks placed in templates: logged-in members always see blocks built live, and guests get the cached copy only of blocks whose content cannot depend on the viewer or the request (no member data, request, session, cookies, forms, CSRF keys, IP address, randomness, nested blocks or database, widget, template, insert and advertisement tags). The plugin decides per block on its own; the settings page lists which blocks are kept for guests and which are built every time, and why.",
+    "published": "2026-10-27T13:49:04+00:00"
 }
