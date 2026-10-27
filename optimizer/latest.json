@@ -1,8 +1,8 @@
 {
-    "version": "1.23.0",
-    "longversion": 12300,
-    "released": 1793042110,
+    "version": "1.24.0",
+    "longversion": 12400,
+    "released": 1793098674,
     "updateurl": "https://github.com/IQ-Level/iql-ips-performance-updates",
-    "releasenotes": "Topic pages and notifications with fewer database queries. The clubs shown under post authors no longer reload after every run of IPS's club rebuild task when nothing changed (on the forum we measured that task rewrote all 490 clubs every 20 minutes, with no club active in the meantime, and each run threw away every cached list), and the lists are kept for 6 hours instead of 10 minutes. The notifications dropdown, the notifications page and the REST API notifications list (the mobile app) read the posts, topics and authors they show with one query, and the API skips queries that can never return anything. Language strings in large API responses are replaced about 4 times faster. Every result stays exactly what IPS returns. Each change has its own switch.",
-    "published": "2026-10-26T19:15:10+00:00"
+    "releasenotes": "Faster topic pages. The badges of every post's author come with one query instead of one per post, the authors of archived topics too, club categories once per page, and the \"who's viewing\" box decodes only members' sessions (1000 sessions: 8.6 -> 0.6 ms). PHP 8.1 deprecation notices (on the forum we measured: about 940 per topic page) no longer go through IPS's costly error handling, and language strings are replaced only where they can be. Pages past the middle of very large topics now get the fast index too (about 200 ms on 5% of topic views before). New, off by default: Pages blocks placed in templates can honour the admin's own \"Cache this block\" setting, as sidebar blocks always did. Each change has its own switch.",
+    "published": "2026-10-27T10:57:54+00:00"
 }

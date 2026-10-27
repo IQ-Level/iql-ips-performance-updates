@@ -10,7 +10,7 @@ To repozytorium jest publicznym kanałem wydań: aktualne wersje, changelog i wy
 
 | Plugin | Wersja | Wydana | Dla |
 | --- | --- | --- | --- |
-| Performance Optimizer | 1.23.0 | 2026-10-26 | Invision Community 4.7 |
+| Performance Optimizer | 1.24.0 | 2026-10-27 | Invision Community 4.7 |
 | Performance Monitor | 1.8.0 | 2026-10-22 | Invision Community 4.7 |
 
 IPS sam sprawdza nowe wersje (na razie każda kopia ma licencję dożywotnią, bez klucza): każdy plugin czyta swój plik w tym repozytorium ([`optimizer/latest.json`](optimizer/latest.json), [`monitor/latest.json`](monitor/latest.json)), a ACP pokazuje przy pluginie plakietkę „nowa wersja”.
@@ -54,6 +54,9 @@ Jedyna zamierzona różnica względem IPS: maile z powiadomień wychodzą tuż p
 | Otwarcie powiadomień (1.22.0) | Oznaczał od nowa jako przeczytane wszystkie powiadomienia członka | Tylko nieprzeczytane: 41–90 → 6–12 ms przy 4000–6600 powiadomieniach (baza testowa) |
 | Kluby pod autorami (1.23.0) | Wyrzucał wszystkie zapamiętane listy klubów przy każdym przebiegu przebudowy klubów, nawet bez zmian | Listy trzymane 6 godzin i odświeżane tylko przy prawdziwej zmianie |
 | Powiadomienia (1.23.0) | Czytał post, temat i autora każdego powiadomienia osobno | Jedno zapytanie na stronę powiadomień, w dzwonku i w REST API |
+| Odznaki autorów postów (1.24.0) | Pytał o odznaki autora osobno przy każdym poście | Jedno zapytanie na stronę tematu (25 postów: 25 → 1) |
+| „Kto przegląda” (1.24.0) | Dekodował wszystkie sesje online dla boxu, który pokazuje tylko członków | 1000 sesji: 8,6 → 0,6 ms |
+| Komunikaty „deprecated” PHP 8.1 (1.24.0) | Dla każdego budował wyjątek z pełnym śladem wywołań i go wyrzucał | Ok. 940 komunikatów na stronę tematu pomijanych od razu |
 | Adresy plików w postach | Podmieniał znacznik osobno dla każdego obrazka | 160 postów: 198 → 4 ms |
 | Wyróżnienia (recognize) | Pytał bazę przed sprawdzeniem uprawnienia | Ok. 50 zapytań mniej na stronę tematu |
 | Datastore z Redisa | Pobierał każdy klucz osobno | Ok. 130 poleceń Redisa mniej na wejście |
