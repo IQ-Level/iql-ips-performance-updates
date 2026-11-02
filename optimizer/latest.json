@@ -1,8 +1,8 @@
 {
-    "version": "1.24.3",
-    "longversion": 12403,
-    "released": 1793624817,
+    "version": "1.24.5",
+    "longversion": 12405,
+    "released": 1793626381,
     "updateurl": "https://github.com/IQ-Level/iql-ips-performance-updates",
-    "releasenotes": "Fix for 1.24.2: ad units hidden on purpose on a given screen size stay hidden when lazy loading is on (1.24.2 could show them and widen the page).",
-    "published": "2026-11-02T13:06:57+00:00"
+    "releasenotes": "Pages show their content before ads and third-party widgets: the AdSense script and any external scripts, banners or frames you pick start only after the page has loaded. The plugin finds the external services on your pages itself and lists them to choose from. Both off by default.",
+    "published": "2026-11-02T13:33:01+00:00"
 }
