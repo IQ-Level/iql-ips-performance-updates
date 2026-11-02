@@ -1,8 +1,8 @@
 {
-    "version": "1.8.0",
-    "longversion": 10800,
-    "released": 1792621506,
+    "version": "1.9.0",
+    "longversion": 10900,
+    "released": 1793626249,
     "updateurl": "https://github.com/IQ-Level/iql-ips-performance-updates",
-    "releasenotes": "What a slow page waited for beyond SQL and HTTP: the time of emails sent while the visitor waits (SMTP, mail()), PHP's CPU time, and \"other\": the time nothing measured explains, such as an add-on waiting for its own server. New columns in the pages and slow requests tabs and in the export.",
-    "published": "2026-10-21T22:25:06+00:00"
+    "releasenotes": "What readers actually wait for in their browsers: real-user measurements (LCP, CLS, INP, TTFB, load time) and the transfer from external services, per page type, phone or desktop, guest or member. New tab and export key. Only totals are kept: no IP, member, address or browser.",
+    "published": "2026-11-02T13:30:49+00:00"
 }
