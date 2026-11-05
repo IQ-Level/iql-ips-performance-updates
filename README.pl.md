@@ -10,8 +10,8 @@ To repozytorium jest publicznym kanałem wydań: aktualne wersje, changelog i wy
 
 | Plugin | Wersja | Wydana | Dla |
 | --- | --- | --- | --- |
-| Performance Optimizer | 1.24.5 | 2026-11-02 | Invision Community 4.7 |
-| Performance Monitor | 1.10.0 | 2026-11-04 | Invision Community 4.7 |
+| Performance Optimizer | 1.24.6 | 2026-11-05 | Invision Community 4.7 |
+| Performance Monitor | 1.10.1 | 2026-11-05 | Invision Community 4.7 |
 
 IPS sam sprawdza nowe wersje (na razie każda kopia ma licencję dożywotnią, bez klucza): każdy plugin czyta swój plik w tym repozytorium ([`optimizer/latest.json`](optimizer/latest.json), [`monitor/latest.json`](monitor/latest.json)), a ACP pokazuje przy pluginie plakietkę „nowa wersja”.
 

@@ -1,8 +1,8 @@
 {
-    "version": "1.24.5",
-    "longversion": 12405,
-    "released": 1793626381,
+    "version": "1.24.6",
+    "longversion": 12406,
+    "released": 1793889231,
     "updateurl": "https://github.com/IQ-Level/iql-ips-performance-updates",
-    "releasenotes": "Pages show their content before ads and third-party widgets: the AdSense script and any external scripts, banners or frames you pick start only after the page has loaded. The plugin finds the external services on your pages itself and lists them to choose from. Both off by default.",
-    "published": "2026-11-02T13:33:01+00:00"
+    "releasenotes": "Posts stop jumping while images load: the space for lazy-loaded images is reserved in the page itself, from the proportions IPS already knows. One switch, off by default.",
+    "published": "2026-11-05T14:33:51+00:00"
 }

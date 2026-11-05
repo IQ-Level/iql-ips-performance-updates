@@ -1,8 +1,8 @@
 {
-    "version": "1.10.0",
-    "longversion": 11000,
-    "released": 1793781590,
+    "version": "1.10.1",
+    "longversion": 11001,
+    "released": 1793889231,
     "updateurl": "https://github.com/IQ-Level/iql-ips-performance-updates",
-    "releasenotes": "Not just how slow, but why: the time to the first byte part by part, which element makes the page jump, whose JavaScript blocks it, what slows down clicks, and results per Optimizer setting.",
-    "published": "2026-11-04T08:39:50+00:00"
+    "releasenotes": "The table of what moves the page now also shows sideways movement and changes of width.",
+    "published": "2026-11-05T14:33:51+00:00"
 }
