@@ -1,8 +1,8 @@
 {
-    "version": "1.24.6",
-    "longversion": 12406,
-    "released": 1793889231,
+    "version": "1.24.7",
+    "longversion": 12407,
+    "released": 1793923264,
     "updateurl": "https://github.com/IQ-Level/iql-ips-performance-updates",
-    "releasenotes": "Posts stop jumping while images load: the space for lazy-loaded images is reserved in the page itself, from the proportions IPS already knows. One switch, off by default.",
-    "published": "2026-11-05T14:33:51+00:00"
+    "releasenotes": "Fix for 1.24.6: images in posts keep their real proportions once loaded. Space is now reserved only for attached images, as the proportions IPS stores for images from other servers are often wrong.",
+    "published": "2026-11-06T00:01:04+00:00"
 }
